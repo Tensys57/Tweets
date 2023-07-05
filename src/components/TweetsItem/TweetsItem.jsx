@@ -13,10 +13,24 @@ export const TweetsItem = ({ user }) => {
   const dispatch = useDispatch();
 
   const clickHandler = () => {
+    !isFollowed
+      ? setNewFollowersQw((prev) => prev + 1)
+      : setNewFollowersQw((prev) => prev - 1);
+
     isFollowed ? dispatch(deleteIsFollowed(id)) : dispatch(addIsFollowed(id));
+
     setIsFollowed(!isFollowed);
   };
   const [isFollowed, setIsFollowed] = useState(arrayIsFollowed.includes(id));
+  const [newFollowersQw, setNewFollowersQw] = useState(
+    isFollowed ? followers + 1 : followers
+  );
+
+  // const getFollowing = () => {
+  //   return isFollowed
+  //     ? setNewFollowersQw((prev) => prev + 1)
+  //     : setNewFollowersQw((prev) => prev - 1);
+  // };
 
   return (
     <div>
@@ -52,7 +66,7 @@ export const TweetsItem = ({ user }) => {
           <p className={css.followersQuantity}>
             {new Intl.NumberFormat("en-US", {
               style: "decimal",
-            }).format(followers)}{" "}
+            }).format(newFollowersQw)}{" "}
             Followers
           </p>
           <button
