@@ -1,6 +1,15 @@
+.Header {
+  background-color: white;
+}
 .headerList {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 40px;
+  list-style: none;
+}
+
+.navTitle {
+  font-size: 32px;
+  color: #a175da;
 }

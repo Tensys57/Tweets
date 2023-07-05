@@ -13,16 +13,5 @@ export const selectIsFollowed = (state, userId) => {
 };
 export const selectError = (state) => state.users.error;
 export const selectPage = (state) => state.users.page;
-export const selectLimit = (state) => state.users.limit;
 
 export const selectArrayIsFollowed = (state) => state.users.arrayIsFollowed;
-
-// export const selectFilteredUsers = createSelector(
-//   [selectUsers, selectFilter],
-//   (users, filter) => {
-//     const normalizedFilter = filter.toLowerCase();
-//     return users.filter((user) =>
-//       user.name.toLowerCase().includes(normalizedFilter)
-//     );
-//   }
-// );

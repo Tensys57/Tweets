@@ -1,10 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
-// import { fetchUsers } from "../../redux/usersOperations";
-import {
-  // selectLimit,
-  selectPage,
-  selectUsers,
-} from "../../redux/usersSelector";
+import { fetchUsers } from "../../redux/usersOperations";
+import { selectPage, selectUsers } from "../../redux/usersSelector";
 import { changePage } from "../../redux/usersSlice";
 import { TweetsItem } from "../TweetsItem/TweetsItem";
 import css from "./TweetsList.module.css";
@@ -12,20 +8,11 @@ import css from "./TweetsList.module.css";
 export const TweetsList = () => {
   const users = useSelector(selectUsers);
   const page = useSelector(selectPage);
-  // const limit = useSelector(selectLimit);
   const dispatch = useDispatch();
 
   function handleLoadMoreClick() {
-    dispatch(changePage(page));
-    // dispatch(fetchUsers())
-    //   .then((response) => {
-    // const users = response.payload;
-    // // if (users.length < limit) {
-
-    // // })
-    // .catch((error) => {
-    //   console.error("Error:", error);
-    // });
+    dispatch(changePage(page + 1));
+    dispatch(fetchUsers(page));
   }
 
   return (

@@ -3,14 +3,18 @@ import css from "./Header.module.css";
 
 const Header = () => {
   return (
-    <nav>
+    <nav className={css.Header}>
       {
         <ul className={css.headerList}>
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink className={css.navTitle} to="/">
+              Home
+            </NavLink>
           </li>
           <li>
-            <NavLink to="/tweets">Tweets</NavLink>
+            <NavLink className={css.navTitle} to="/tweets">
+              Tweets
+            </NavLink>
           </li>
         </ul>
       }

@@ -1,12 +1,13 @@
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
-import css from "./TweetsItem.module.css";
 import { selectArrayIsFollowed } from "../../redux/usersSelector";
 import { addIsFollowed, deleteIsFollowed } from "../../redux/usersSlice";
 import { useState } from "react";
+
 import mainPicture from "../../images/mainPicture.png";
 import elipse from "../../images/Ellipse1.svg";
 import logo from "../../images/logo2.svg";
+import css from "./TweetsItem.module.css";
 
 export const TweetsItem = ({ user }) => {
   const { id, avatar, tweets, followers } = user;
