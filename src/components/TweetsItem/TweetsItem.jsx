@@ -4,6 +4,8 @@ import css from "./TweetsItem.module.css";
 import { selectArrayIsFollowed } from "../../redux/usersSelector";
 import { addIsFollowed, deleteIsFollowed } from "../../redux/usersSlice";
 import { useState } from "react";
+import imagebackground from "../../images/mainPicture.png";
+import elipse from "../../images/Ellipse1.svg";
 
 export const TweetsItem = ({ user }) => {
   const { id, avatar, tweets, followers } = user;
@@ -21,7 +23,7 @@ export const TweetsItem = ({ user }) => {
       <div className={css.tweetsCard}>
         <img
           className={css.mainPicture}
-          src="src\images\mainPicture.png"
+          src={imagebackground}
           alt="Main Picture"
           width="308"
           height="168"
@@ -37,7 +39,7 @@ export const TweetsItem = ({ user }) => {
         <div className={css.userDisplay}>
           <img
             className={css.userEllipse}
-            src="src\images\Ellipse1.svg"
+            src={elipse}
             width="76"
             height="22"
           />
