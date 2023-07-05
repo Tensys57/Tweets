@@ -4,8 +4,9 @@ import css from "./TweetsItem.module.css";
 import { selectArrayIsFollowed } from "../../redux/usersSelector";
 import { addIsFollowed, deleteIsFollowed } from "../../redux/usersSlice";
 import { useState } from "react";
-import imagebackground from "../../images/mainPicture.png";
+import mainPicture from "../../images/mainPicture.png";
 import elipse from "../../images/Ellipse1.svg";
+import logo from "../../images/logo2.svg";
 
 export const TweetsItem = ({ user }) => {
   const { id, avatar, tweets, followers } = user;
@@ -26,29 +27,18 @@ export const TweetsItem = ({ user }) => {
     isFollowed ? followers + 1 : followers
   );
 
-  // const getFollowing = () => {
-  //   return isFollowed
-  //     ? setNewFollowersQw((prev) => prev + 1)
-  //     : setNewFollowersQw((prev) => prev - 1);
-  // };
-
   return (
     <div>
       <div className={css.tweetsCard}>
         <img
           className={css.mainPicture}
-          src={imagebackground}
+          src={mainPicture}
           alt="Main Picture"
           width="308"
           height="168"
         />
         <a href="https://goit.global/ua/" className={css.logo}>
-          <img
-            className={css.logo}
-            src="src\images\Logo2.svg"
-            width="76"
-            height="22"
-          ></img>
+          <img className={css.logo} src={logo} width="76" height="22"></img>
         </a>
         <div className={css.userDisplay}>
           <img

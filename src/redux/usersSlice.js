@@ -10,7 +10,7 @@ const initialState = {
   page: 1,
   limit: 3,
 
-  filter: "",
+  // filter: "",
 };
 // const handlePending = (state) => {
 //   state.isLoading = true;
@@ -24,30 +24,30 @@ const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
-    changeFilter: (state, action) => {
-      state.filter = action.payload + 1;
-    },
+    // changeFilter: (state, action) => {
+    //   state.filter = action.payload + 1;
+    // },
 
-    toggleIsFollowed: (state, action) => {
-      const userId = action.payload;
-      const user = state.items.find((user) => user.id === userId);
-      if (user) {
-        user.isFollowed = !user.isFollowed;
-        state.user = { ...state.user };
-      }
-    },
+    // toggleIsFollowed: (state, action) => {
+    //   const userId = action.payload;
+    //   const user = state.items.find((user) => user.id === userId);
+    //   if (user) {
+    //     user.isFollowed = !user.isFollowed;
+    //     state.user = { ...state.user };
+    //   }
+    // },
 
-    toggleFollowing: (state, action) => {
-      const userId = action.payload;
-      const user = state.items.find((user) => user.id === userId);
-      if (user) {
-        {
-          user.isFollowed
-            ? (user.followers = user.followers + 1)
-            : (user.followers = user.followers - 1);
-        }
-      }
-    },
+    // toggleFollowing: (state, action) => {
+    //   const userId = action.payload;
+    //   const user = state.items.find((user) => user.id === userId);
+    //   if (user) {
+    //     {
+    //       user.isFollowed
+    //         ? (user.followers = user.followers + 1)
+    //         : (user.followers = user.followers - 1);
+    //     }
+    //   }
+    // },
 
     changePage: (state, action) => {
       state.page = action.payload + 1;
@@ -68,48 +68,48 @@ const usersSlice = createSlice({
       .addCase(fetchUsers.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(addUser.pending, (state) => {
-        state.isLoading = true;
-      })
-      .addCase(deleteUser.pending, (state) => {
-        state.isLoading = true;
-      })
+      // .addCase(addUser.pending, (state) => {
+      //   state.isLoading = true;
+      // })
+      // .addCase(deleteUser.pending, (state) => {
+      //   state.isLoading = true;
+      // })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
       })
-      .addCase(addUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(deleteUser.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      // .addCase(addUser.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
+      // .addCase(deleteUser.rejected, (state, action) => {
+      //   state.isLoading = false;
+      //   state.error = action.payload;
+      // })
       .addCase(fetchUsers.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.items = [...state.items, ...payload];
         state.error = null;
-      })
-      .addCase(addUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.items.push(action.payload);
-      })
-      .addCase(deleteUser.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        const index = state.items.findIndex(
-          (user) => user.id === action.payload.id
-        );
-        state.items.splice(index, 1);
       });
+    // .addCase(addUser.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   state.items.push(action.payload);
+    // })
+    // .addCase(deleteUser.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.error = null;
+    //   const index = state.items.findIndex(
+    //     (user) => user.id === action.payload.id
+    //   );
+    //   state.items.splice(index, 1);
+    // });
   },
 });
 export const {
-  changeFilter,
-  toggleIsFollowed,
-  toggleFollowing,
+  // changeFilter,
+  // toggleIsFollowed,
+  // toggleFollowing,
   changePage,
   addIsFollowed,
   deleteIsFollowed,
